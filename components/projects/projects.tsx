@@ -1,4 +1,4 @@
-import { ArrowRight, Code2, DatabaseZap, RadioTower } from "lucide-react";
+import { ArrowRight, Code2, DatabaseZap } from "lucide-react";
 import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,23 +48,6 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const EXPERIENCE_ITEMS: Project[] = [
-  {
-    id: "astroshrine-realtime-app",
-    icon: RadioTower,
-    iconLabel: "Astroshrine",
-    title:
-      "Production React Native features for live streaming, calls, payments, notifications, and playback.",
-    description:
-      "Built and optimized a real-time React Native app for live streaming and 1:1 audio/video calls. Integrated Agora, Redux, Razorpay wallet flows, FCM/Notifee notifications, and session recording/playback with focus on stability, payment recovery, responsiveness, and fault tolerance.",
-    meta: "Software Developer, Jan 2024 - June 2025",
-    imageRatio: 1024 / 768,
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Mobile application testing workspace",
-  },
-];
-
 export type ProjectsProps = {
   withHeadline?: boolean;
   viewMoreVisible?: boolean;
@@ -111,30 +94,6 @@ export function Projects({
             </Link>
           </div>
         ) : null}
-      </div>
-    </section>
-  );
-}
-
-export function ExperienceShowcase(): ReactNode {
-  return (
-    <section className="relative w-full">
-      <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
-        <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
-          <h2 className="text-foreground font-serif text-[2.5rem] leading-[1.05] font-medium tracking-tight md:text-[3rem] lg:text-[3.5rem]">
-            Experience
-          </h2>
-          <p className="text-foreground/65 max-w-[36ch] text-[18px] leading-[1.45] tracking-tight sm:text-[20px]">
-            Production work from Astroshrine, focused on real-time mobile
-            systems and reliable session flows.
-          </p>
-        </FadeIn>
-
-        <div className="columns-1 gap-6 md:columns-2 md:gap-7">
-          {EXPERIENCE_ITEMS.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
       </div>
     </section>
   );

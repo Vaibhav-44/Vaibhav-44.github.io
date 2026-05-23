@@ -1,6 +1,6 @@
 import { ContactCard } from "@/components/contact/contact-card";
 import { Hero } from "@/components/hero/hero";
-import { ExperienceShowcase } from "@/components/projects/projects";
+import { ExperienceShowcase } from "@/components/about/experience";
 import { createMetadata, siteConfig } from "@/lib/metadata";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";

@@ -17,12 +17,14 @@ import {
 type NavItem = {
   label: string;
   href: string;
+  external?: boolean;
 };
 
 const NAV_ITEMS: readonly NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
+  { label: "Resume", href: "https://resume.vaibh.me", external: true },
 ];
 
 function useIsMounted(): boolean {
@@ -121,10 +123,12 @@ export function Nav(): ReactNode {
   } | null>(null);
   const [hasMeasured, setHasMeasured] = useState(false);
 
-  const activeIndex = NAV_ITEMS.findIndex((item) =>
-    item.href === "/"
-      ? pathname === "/"
-      : pathname === item.href || pathname.startsWith(`${item.href}/`)
+  const activeIndex = NAV_ITEMS.findIndex(
+    (item) =>
+      !item.external &&
+      (item.href === "/"
+        ? pathname === "/"
+        : pathname === item.href || pathname.startsWith(`${item.href}/`))
   );
 
   useLayoutEffect(() => {
@@ -187,6 +191,8 @@ export function Nav(): ReactNode {
                 <Link
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   className="focus-ring relative inline-flex cursor-pointer items-center justify-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300"
                 >
                   <span

@@ -46,12 +46,12 @@ export function ContactCard(): ReactNode {
                     lucideIcon={Mail}
                   />
                   <SocialIcon
-                    href="https://www.linkedin.com"
+                    href="https://www.linkedin.com/in/vaibhav-patil-8a0447256/"
                     label="LinkedIn"
                     lucideIcon={Linkedin}
                   />
                   <SocialIcon
-                    href="https://github.com"
+                    href="https://github.com/Vaibhav-44/"
                     label="GitHub"
                     lucideIcon={Github}
                   />

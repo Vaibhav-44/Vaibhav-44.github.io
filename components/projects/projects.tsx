@@ -1,0 +1,197 @@
+import { ArrowRight, Code2, DatabaseZap, RadioTower } from "lucide-react";
+import type { ComponentType, ReactNode } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+import { FadeIn } from "@/components/ui/motion-primitives";
+
+type Project = {
+  id: string;
+  icon: ComponentType<{ className?: string }>;
+  iconLabel: string;
+  title: string;
+  description: string;
+  meta: string;
+  imageRatio: number;
+  image: string;
+  imageAlt: string;
+};
+
+const PROJECTS: Project[] = [
+  {
+    id: "rag-evaluation-playground",
+    icon: DatabaseZap,
+    iconLabel: "RAG Eval",
+    title:
+      "A modular RAG evaluation playground for comparing dense, sparse, and hybrid retrieval strategies.",
+    description:
+      "Built with Python, FAISS, BM25, and Streamlit, with reranking, Precision@K benchmarking, and side-by-side retrieval inspection.",
+    meta: "Python, FAISS, BM25, Streamlit",
+    imageRatio: 1024 / 768,
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Code editor and data visualization screens",
+  },
+  {
+    id: "parallelcode",
+    icon: Code2,
+    iconLabel: "ParallelCode",
+    title:
+      "A real-time collaborative IDE with concurrent editing, WebSocket sync, and secure code execution.",
+    description:
+      "Designed an event-driven architecture for low-latency collaboration and implemented Docker-based sandboxing for multi-language execution.",
+    meta: "React, Node.js, Socket.io, Docker",
+    imageRatio: 1024 / 768,
+    image:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Developer workspace with code on a laptop",
+  },
+];
+
+const EXPERIENCE_ITEMS: Project[] = [
+  {
+    id: "astroshrine-realtime-app",
+    icon: RadioTower,
+    iconLabel: "Astroshrine",
+    title:
+      "Production React Native features for live streaming, calls, payments, notifications, and playback.",
+    description:
+      "Built and optimized a real-time React Native app for live streaming and 1:1 audio/video calls. Integrated Agora, Redux, Razorpay wallet flows, FCM/Notifee notifications, and session recording/playback with focus on stability, payment recovery, responsiveness, and fault tolerance.",
+    meta: "Software Developer, Jan 2024 - June 2025",
+    imageRatio: 1024 / 768,
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Mobile application testing workspace",
+  },
+];
+
+export type ProjectsProps = {
+  withHeadline?: boolean;
+  viewMoreVisible?: boolean;
+};
+
+export function Projects({
+  withHeadline = false,
+  viewMoreVisible = false,
+}: ProjectsProps): ReactNode {
+  const items = viewMoreVisible ? PROJECTS.slice(0, 4) : PROJECTS;
+
+  return (
+    <section className="relative w-full">
+      <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
+        {withHeadline ? (
+          <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
+            <h2 className="text-foreground font-serif text-[2.5rem] leading-[1.05] font-medium tracking-tight md:text-[3rem] lg:text-[3.5rem]">
+              My projects
+            </h2>
+            <p className="text-foreground/65 max-w-[33ch] text-[18px] leading-[1.45] tracking-tight sm:text-[20px]">
+              Real-time applications, collaborative developer tools, and AI
+              retrieval systems I&rsquo;ve built.
+            </p>
+          </FadeIn>
+        ) : null}
+
+        <div className="columns-1 gap-6 md:columns-2 md:gap-7">
+          {items.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
+          ))}
+        </div>
+
+        {viewMoreVisible ? (
+          <div className="mt-12 flex justify-center sm:mt-16">
+            <Link
+              href="/projects"
+              className="border-foreground/8 focus-ring group bg-background text-foreground hover:bg-foreground/5 inline-flex cursor-pointer items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-colors"
+            >
+              View all projects
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </Link>
+          </div>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
+export function ExperienceShowcase(): ReactNode {
+  return (
+    <section className="relative w-full">
+      <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
+        <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
+          <h2 className="text-foreground font-serif text-[2.5rem] leading-[1.05] font-medium tracking-tight md:text-[3rem] lg:text-[3.5rem]">
+            Experience
+          </h2>
+          <p className="text-foreground/65 max-w-[36ch] text-[18px] leading-[1.45] tracking-tight sm:text-[20px]">
+            Production work from Astroshrine, focused on real-time mobile
+            systems and reliable session flows.
+          </p>
+        </FadeIn>
+
+        <div className="columns-1 gap-6 md:columns-2 md:gap-7">
+          {EXPERIENCE_ITEMS.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectCard({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}): ReactNode {
+  const Icon = project.icon;
+  return (
+    <FadeIn
+      delay={Math.min(index * 0.06, 0.3)}
+      className="mb-6 break-inside-avoid md:mb-7"
+    >
+      <article className="project-card border-foreground/8 bg-background flex cursor-pointer flex-col gap-4 rounded-3xl border p-3 sm:p-3.5">
+        <header className="flex items-center gap-2.5 px-1 pt-2">
+          <span className="border-foreground/10 bg-background inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border">
+            <Icon className="text-foreground h-3.5 w-3.5" aria-hidden="true" />
+          </span>
+          <span className="text-foreground text-sm font-medium tracking-tight">
+            {project.iconLabel}
+          </span>
+        </header>
+
+        <div
+          className="project-card__image ring-foreground/5 bg-foreground/5 relative w-full overflow-hidden rounded-2xl ring-1"
+          style={{ aspectRatio: project.imageRatio }}
+        >
+          <div className="project-card__image-inner">
+            <Image
+              src={project.image}
+              alt={project.imageAlt}
+              fill
+              sizes="(min-width: 1024px) 540px, (min-width: 768px) 45vw, 100vw"
+              className="object-cover"
+              priority={index < 2}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2.5 px-1 pb-1">
+          <h3 className="text-foreground text-[20px] leading-[1.2] font-medium tracking-tight sm:text-[22px]">
+            {project.title}
+          </h3>
+          <p className="text-foreground/65 text-[14px] leading-normal tracking-tight sm:text-[15px]">
+            {project.description}
+          </p>
+        </div>
+
+        <p className="text-foreground/50 px-1 pb-2 text-[12px] tracking-tight">
+          {project.meta}
+        </p>
+      </article>
+    </FadeIn>
+  );
+}

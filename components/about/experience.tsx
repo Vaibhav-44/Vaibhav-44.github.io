@@ -6,15 +6,15 @@ import { FadeIn } from "@/components/ui/motion-primitives";
 
 const EXPERIENCE = {
   company: "Astroshrine",
-  role: "Software Developer",
-  period: "Jan 2024 - June 2025",
+  role: "Software Engineer",
+  period: "Jan 2024 - August 2025",
   title:
-    "Production React Native features for live streaming, calls, payments, notifications, and playback.",
+    "Built a scalable real-time React Native platform powering chat, calls, payments, and live engagement.",
   description:
-    "Built and optimized a real-time React Native app for live streaming and 1:1 audio/video calls. Integrated Agora, Redux, Razorpay wallet flows, FCM/Notifee notifications, and session recording/playback with focus on stability, payment recovery, responsiveness, and fault tolerance.",
+    "Built Astroshrine’s mobile application from the ground up, delivering scalable real-time communication systems including chat, live streaming, audio/video calls, payments, notifications, and media workflows. Focused on architecture, performance optimization, fault tolerance, and production reliability across the app lifecycle.",
   image:
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-  imageAlt: "Mobile application testing workspace",
+    "/astroshrine_work.png",
+  imageAlt: "Mobile application",
 };
 
 export function Experience(): ReactNode {
@@ -84,10 +84,10 @@ function ExperienceCard(): ReactNode {
           <p className="text-foreground/50 text-[12px] tracking-tight">
             {EXPERIENCE.role}, {EXPERIENCE.period}
           </p>
-          <h3 className="text-foreground text-[20px] leading-[1.2] font-medium tracking-tight sm:text-[24px]">
+          <h3 className="text-[21px] font-semibold leading-[1.18] tracking-[-0.025em] max-w-[430px]">
             {EXPERIENCE.title}
           </h3>
-          <p className="text-foreground/65 text-[14px] leading-normal tracking-tight sm:text-[15px]">
+          <p className="text-[14.5px] leading-[1.7] font-normal tracking-[-0.01em] text-foreground/58 max-w-[470px]">
             {EXPERIENCE.description}
           </p>
         </div>

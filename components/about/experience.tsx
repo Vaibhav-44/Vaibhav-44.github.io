@@ -6,6 +6,7 @@ import { FadeIn } from "@/components/ui/motion-primitives";
 
 const EXPERIENCE = {
   company: "Astroshrine",
+  logo: "/astroshrine_logo.png",
   role: "Software Engineer",
   period: "Jan 2024 - August 2025",
   title:
@@ -57,7 +58,11 @@ function ExperienceCard(): ReactNode {
         <div className="flex min-w-0 flex-col gap-3 sm:w-[16rem] sm:shrink-0">
           <header className="flex items-center gap-2.5 px-1 pt-2">
             <span className="border-foreground/10 bg-background inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border">
-              <RadioTower
+              <Image
+                src={EXPERIENCE.logo}
+                alt={EXPERIENCE.company}
+                width={32}
+                height={32}
                 className="text-foreground h-3.5 w-3.5"
                 aria-hidden="true"
               />

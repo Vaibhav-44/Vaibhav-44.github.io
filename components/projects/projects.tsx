@@ -29,8 +29,8 @@ const PROJECTS: Project[] = [
     meta: "Python, FAISS, BM25, Streamlit",
     imageRatio: 1024 / 768,
     image:
-      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Code editor and data visualization screens",
+      "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Abstract data network representing retrieval evaluation",
   },
   {
     id: "parallelcode",
@@ -43,8 +43,8 @@ const PROJECTS: Project[] = [
     meta: "React, Node.js, Socket.io, Docker",
     imageRatio: 1024 / 768,
     image:
-      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Developer workspace with code on a laptop",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Code editor screen for a collaborative developer tool",
   },
 ];
 

@@ -4,13 +4,13 @@ export const siteConfig = {
   name: "Vaibhav Patil",
   description:
     "Software developer focused on real-time systems, React Native applications, and retrieval-augmented AI pipelines.",
-  url: "https://example.com",
+  url: "https://vaibh.me",
   ogImage: "/og-image.png",
   creator: "Vaibhav Patil",
   authors: [
     {
       name: "Vaibhav Patil",
-      url: "https://example.com",
+      url: "https://vaibh.me",
     },
   ],
   keywords: [

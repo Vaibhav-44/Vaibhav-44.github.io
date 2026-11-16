@@ -29,10 +29,10 @@ export function ContactCard(): ReactNode {
             <div className="relative grid gap-8 p-6 sm:gap-10 sm:p-7 md:grid-cols-[1.2fr_1fr] md:items-stretch md:gap-6 md:p-6">
               <div className="flex flex-col gap-5">
                 <h2 className="text-foreground font-serif text-[2.25rem] leading-[1.05] font-medium tracking-tight sm:text-[2.75rem] lg:text-[3.25rem]">
-                  Let&rsquo;s connect
+                  Let's connect
                 </h2>
                 <p className="text-foreground/65 mb-6 max-w-[29ch] text-[18px] leading-[1.4] tracking-tight sm:text-[22px]">
-                  I&rsquo;m open to software engineering roles, real-time
+                  I'm open to software engineering roles, real-time
                   systems work, and AI projects where reliability matters.
                 </p>
                 <ContactCardCtas />
@@ -41,7 +41,7 @@ export function ContactCard(): ReactNode {
               <div className="border-foreground/8 bg-background flex flex-col items-center justify-center gap-6 rounded-[1.1rem] border p-6 sm:p-8">
                 <div className="flex items-center gap-3 opacity-75">
                   <SocialIcon
-                    href="mailto:connect@vaibh.me"
+                    href="mailto:connect@vaibh.app"
                     label="Email"
                     lucideIcon={Mail}
                   />

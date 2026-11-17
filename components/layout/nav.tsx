@@ -24,7 +24,7 @@ const NAV_ITEMS: readonly NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
-  { label: "Resume", href: "https://resume.vaibh.me", external: true },
+  { label: "Resume", href: "https://resume.vaibh.app", external: true },
 ];
 
 function useIsMounted(): boolean {
